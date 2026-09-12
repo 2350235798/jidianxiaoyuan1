@@ -19,12 +19,9 @@ async function bootstrapServer() {
   if (fs.existsSync(clientDistPath)) {
     app.use(express.static(clientDistPath));
     const expressApp = app.getHttpAdapter().getInstance();
-    expressApp.get('*', (req, res, next) => {
-      if (req.path.startsWith('/api/')) {
-        return next();
-      }
-      res.sendFile(path.join(clientDistPath, 'index.html'));
-    });
+    expressApp.get('/app/*', (req, res) => {
+  res.sendFile(path.join(clientDistPath, 'index.html'));
+});
   }
 
   await app.init();
