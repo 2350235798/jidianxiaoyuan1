@@ -33,6 +33,10 @@ async function bootstrapServer() {
 }
 
 module.exports = async (req, res) => {
+  // 去掉 /api 前缀，让 NestJS 路由匹配
+  if (req.url.startsWith('/api')) {
+    req.url = req.url.replace(/^\/api/, '') || '/';
+  }
   const server = await bootstrapServer();
   server(req, res);
 };
