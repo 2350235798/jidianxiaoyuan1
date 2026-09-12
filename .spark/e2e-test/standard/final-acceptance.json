@@ -1,0 +1,29 @@
+{
+  "cases": [
+    {
+      "id": 1,
+      "priority": "p0",
+      "description": "首页正常渲染：公告栏+发帖编辑器+信息流+五栏导航"
+    },
+    {
+      "id": 2,
+      "priority": "p0",
+      "description": "注册新用户并发布第一条帖子，帖子出现在信息流顶部"
+    },
+    {
+      "id": 3,
+      "priority": "p1",
+      "description": "点赞和评论功能验证"
+    },
+    {
+      "id": 4,
+      "priority": "p1",
+      "description": "分享链接复制功能"
+    },
+    {
+      "id": 5,
+      "priority": "p1",
+      "description": "五个页面导航切换均正常显示内容"
+    }
+  ]
+}
