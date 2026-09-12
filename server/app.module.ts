@@ -1,8 +1,6 @@
 import { APP_FILTER } from '@nestjs/core';
 import { Module, Logger } from '@nestjs/common';
 import { ConfigModule } from '@nestjs/config';
-// eslint-disable-next-line import/no-extraneous-dependencies
-import { LoggerModule } from '@lark-apaas/nestjs-logger';
 
 import { DatabaseModule } from './database/database.module';
 import { GlobalExceptionFilter } from './common/filters/exception.filter';
@@ -17,7 +15,6 @@ import { ViewModule } from './modules/view/view.module';
     ConfigModule.forRoot({
       isGlobal: true,
     }),
-    LoggerModule,
     DatabaseModule,
     AuthModule,
     PostModule,

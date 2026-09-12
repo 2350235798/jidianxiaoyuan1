@@ -1,6 +1,5 @@
 import { NestFactory } from '@nestjs/core';
 import { Logger } from '@nestjs/common';
-import { configureApp } from '@lark-apaas/fullstack-nestjs-core';
 import { join } from 'path';
 import { __express as hbsExpressEngine } from 'hbs';
 
@@ -11,9 +10,7 @@ async function bootstrap() {
   const app = await NestFactory.create<NestExpressApplication>(AppModule, {
     abortOnError: process.env.NODE_ENV !== 'development',
   });
-  await configureApp(app, { 
-    disableSwagger: true,
-  });
+    app.enableCors();
   const logger = new Logger('Bootstrap');
   const host = process.env.SERVER_HOST || 'localhost';
   const port = Number(process.env.SERVER_PORT || '3000');
